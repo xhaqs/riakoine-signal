@@ -19,6 +19,16 @@ defmodule SignalWeb.StreamController do
     end
   end
 
+  # DELETE /api/streams/:id — end stream (called by CF Worker on session-live-end)
+  def delete(conn, %{"id" => stream_id}) do
+    try do
+      Signal.Stream.end_stream(stream_id)
+      json(conn, %{ended: true})
+    catch
+      :exit, _ -> json(conn, %{ended: true, note: "stream already ended"})
+    end
+  end
+
   # GET /hls/:stream_id/index.m3u8 and /hls/:stream_id/:file
   def hls(conn, %{"stream_id" => stream_id, "file" => file}) do
     # Prevent path traversal
