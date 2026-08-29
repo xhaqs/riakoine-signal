@@ -1,11 +1,11 @@
-app            = "aware-signal"
+app            = "riakoine-signal"
 primary_region = "jnb"
 
 [build]
   dockerfile = "Dockerfile"
 
 [env]
-  PHX_HOST = "aware-signal.fly.dev"
+  PHX_HOST = "riakoine-signal.fly.dev"
   PORT     = "4000"
 
 [http_service]

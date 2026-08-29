@@ -1,4 +1,4 @@
-name: Deploy aware-signal to Fly.io
+name: Deploy riakoine-signal to Fly.io
 
 on:
   push:

@@ -5,7 +5,7 @@ config :signal, SignalWeb.Endpoint,
   adapter: Phoenix.Endpoint.Cowboy2Adapter,
   render_errors: [formats: [json: SignalWeb.ErrorJSON], layout: false],
   pubsub_server: Signal.PubSub,
-  live_view: [signing_salt: "aware_signal_v1"]
+  live_view: [signing_salt: "riakoine_signal_v1"]
 
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
