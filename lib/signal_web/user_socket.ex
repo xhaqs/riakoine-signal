@@ -1,7 +1,8 @@
 defmodule SignalWeb.UserSocket do
   use Phoenix.Socket
 
-  channel "room:*", SignalWeb.RoomChannel
+  channel "room:*",      SignalWeb.RoomChannel
+  channel "broadcast:*", SignalWeb.BroadcastChannel
 
   @impl true
   def connect(params, socket, _connect_info) do

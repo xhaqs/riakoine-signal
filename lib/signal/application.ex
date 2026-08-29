@@ -5,9 +5,11 @@ defmodule Signal.Application do
   def start(_type, _args) do
     children = [
       {Registry, keys: :unique, name: Signal.RoomRegistry},
+      {Registry, keys: :unique, name: Signal.StreamRegistry},
       {Phoenix.PubSub, name: Signal.PubSub},
       SignalWeb.Presence,
       Signal.RoomSupervisor,
+      Signal.StreamSupervisor,
       SignalWeb.Endpoint
     ]
 
